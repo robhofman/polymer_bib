@@ -1,6 +1,6 @@
 <link rel="import" href="/bower_components/polymerfire/firebase-app.html">
 <link rel="import" href="/my-login.html">
-<link rel="import" href="/bower_components/calendar-lite/calendar-lite.html">
+<link rel="import" href="/bower_components/calendar-lite-3/calendar-lite.html">
 
 <dom-module id="my-app">
 	<template>
@@ -10,7 +10,7 @@
 			database-url="https://bib-polymer.firebaseio.com/"
 			api-key="AIzaSyAcHdKEgvfihDwJkY_Ch6cuNh4GTuAbGe4">
 		</firebase-app>	
-		<calendar-lite id="cal"></calendar-lite>
+		<calendar-lite first-color-days='["4_2","26_2","15_3"]' id="cal"></calendar-lite>
 		<my-login></my-login>
 	</template>
 	<script>
