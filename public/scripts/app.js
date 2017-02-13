@@ -9,19 +9,5 @@ if(document.documentElement.clientWidth>1200){
     else{
         console.log("no jquery baby");
     }
-
-
-
-
 })();
 
-
-
-
-
-
-
-document.querySelector('#cal').addEventListener('date-change', function (e) {
-    // console.log(e);
-
-});

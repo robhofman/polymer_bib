@@ -1,4 +1,5 @@
 <link rel="import" href="/bower_components/polymerfire/firebase-auth.html">
+<link rel="import" href="/bower_components/polymerfire/firebase-query.html">
 <link rel="import" href="/bower_components/paper-button/paper-button.html">
 <dom-module id="my-login">
 	<template>
@@ -9,8 +10,16 @@
 			provider="google">	
 		</firebase-auth>
 
+		<firebase-query id="query" path="/personen/[[user.uid]]" data="{{dates}}">
+
+		</firebase-query>
 		<template is="dom-if" if="[[user]]">
 			<h2>Username : [[user.displayName]]</h2>
+			<ul id="dateslist">
+				<template is="dom-repeat" items="[[dates]]" as="date">
+					<li class="content">[[date.date]]</li>
+				</template>
+			</ul>
 		</template>
 		<paper-button raised on-tap="login" hidden$="[[user]]">Sign in</paper-button>
 		<paper-button raised on-tap="logout" hidden$="[[!user]]">Sign out</paper-button>
@@ -25,6 +34,9 @@
 				},
 				statusKnown: {
 					type: Object
+				},
+				dates: {
+				    type: Array
 				}
 			},
 			login: function(){
